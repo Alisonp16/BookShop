@@ -10,7 +10,7 @@ namespace BookShop
         static void Main(string[] args)
         {
             BookClass[] books = InitializeBookLibary();
-
+                        string isbnInput = "";
             OptionMenu.DisplayMenuOnConsole();
             int option = 0;
             do
@@ -33,30 +33,15 @@ namespace BookShop
 
 
                     case OptionMenu.FindBook:
-                        foreach (BookClass book in books)
-                        {
-                            try
-                            {
-                                //if (book.ISBN.Equals(IS))
-                                {
-
-                                    //book.Search(search);
-                                    Console.WriteLine("THIS ISBN DOES NOT EXIST");
-                                    {
-
-                                    }
-                                }
-                            }
-                            catch
-                            {
-
-                            }
-                        }
+                        
+                        findbook(books, isbnInput);
 
                         break;
                     case OptionMenu.UpdateBook:
 
+                        BookClass book = findbook(books, isbnInput);
 
+                        updatebook(book);
                         //book.Update();
 
 
@@ -66,6 +51,38 @@ namespace BookShop
                         break;
                 }
             } while (option != OptionMenu.Exit);
+        }
+
+        private static void updatebook(BookClass book)
+        {
+            book.getUserInput();
+        }
+
+        private static BookClass findbook(BookClass[] books, string isbn)
+        {
+            foreach (BookClass book in books)
+            {
+                try
+                {
+                    //if (book.ISBN.Equals(IS))
+                    {
+
+                        //book.Search(search);
+                        Console.WriteLine("THIS ISBN DOES NOT EXIST");
+                        {
+
+                        }
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+            //
+            //function not working.returning a blank book to allow the update function to work
+            //
+            return new BookClass();
         }
 
         private static void InsertBooks(BookClass[] books)
