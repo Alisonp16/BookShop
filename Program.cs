@@ -72,7 +72,7 @@ namespace BookShop
         {
             for (int i = 0; i < books.Length; i++)
             {
-
+                Console.WriteLine($"input book {i}");
                 books[i].getUserInput();
             }
         }

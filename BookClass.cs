@@ -1,7 +1,7 @@
 ﻿namespace BookShop
 {
     using System;
-    class BookClass
+    class BookClass :Object
     {
 
         public string ISBN { get; set; }
@@ -16,6 +16,14 @@
             this.Author = author;
             this.Title = title;
             this.Price = price;
+        }
+        /*
+         * the overide replaces the string method on the object, printing details of book
+         * 
+         */
+        public override string ToString()
+        {
+            return $"{Title} by {Author} -isbn-{ISBN} : €{Price}";
         }
         public void getUserInput()
         {
