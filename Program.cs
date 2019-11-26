@@ -5,7 +5,7 @@ namespace BookShop
 
     class Program
     {
-   
+
 
         static void Main(string[] args)
         {
@@ -15,10 +15,9 @@ namespace BookShop
             int option = 0;
             do
             {
-
-
+                Console.WriteLine("Enter Menu Option");
                 option = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(option);
+
                 switch (option)
                 {
                     case OptionMenu.PrintMenu:
@@ -27,18 +26,9 @@ namespace BookShop
 
                     case OptionMenu.PrintBookList:
                         PrintBookList(books);
-
                         break;
-
-
                     case OptionMenu.InsertBook:
-
-                        for (int i = 0; i < books.Length; i++)
-                        {
-                            BookClass book = new BookClass();
-                            book.getUserInput();
-                            books[i] = book;
-                        }
+                        InsertBooks(books);
                         break;
 
 
@@ -76,6 +66,15 @@ namespace BookShop
                         break;
                 }
             } while (option != OptionMenu.Exit);
+        }
+
+        private static void InsertBooks(BookClass[] books)
+        {
+            for (int i = 0; i < books.Length; i++)
+            {
+
+                books[i].getUserInput();
+            }
         }
 
         private static BookClass[] InitializeBookLibary()
